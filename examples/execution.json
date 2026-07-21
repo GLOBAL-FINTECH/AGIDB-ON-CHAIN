@@ -1,0 +1,31 @@
+{
+  "block_id": "execution-demo-0001",
+  "sender": "0xoperator",
+  "nonce": 1,
+  "accounts": {
+    "0xabc123": {
+      "nonce": 2,
+      "balance": "999000",
+      "code_hash": "0x00",
+      "storage_root": "0x00"
+    }
+  },
+  "contract_code": {"0xcontract01": "0x6001600055"},
+  "storage": {"0xcontract01/0x00": "0x01"},
+  "receipts": {
+    "tx-execution-0001": {
+      "status": 1,
+      "gas_used": 42000,
+      "contract": "0xcontract01",
+      "logs": 1
+    }
+  },
+  "logs": {
+    "tx-execution-0001/00000000000000000000": {
+      "address": "0xcontract01",
+      "topics": ["0xdeadbeef"],
+      "data": "0x01"
+    }
+  },
+  "state": {"execution/demo/status": "committed"}
+}
