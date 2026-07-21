@@ -1,0 +1,22 @@
+name: CI
+on: [push, pull_request]
+jobs:
+  go:
+    runs-on: ubuntu-latest
+    defaults: {run: {working-directory: engine}}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with: {go-version: '1.23.x'}
+      - run: go test ./...
+      - run: go vet ./...
+      - run: go build ./cmd/agidb
+  npm:
+    runs-on: ubuntu-latest
+    defaults: {run: {working-directory: npm}}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: {node-version: 20}
+      - run: npm install
+      - run: npm run build
